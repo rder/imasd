@@ -1,0 +1,257 @@
+Introducción Lenguaje GO
+ - I+D+i - C&S
+
+* Que es GO ?
+
+- Go mas conocido como Golang, es un lenguaje de programación que comenzó a ser desarrollado en septiembre de 2007 por Robert Griesemer, Rob Pike y Ken Thompson (Google).
+- Su lanzamiento oficial fue a finales de 2009 (aunque su primera versión estable fue en 2012).
+
+.image images/goLanguage.png
+
+* Por que aprender Go?
+
+- Performance
+- Sencillez
+- Por su alto rendimiento se comenzaron a crear herramientas vinculadas al mundo de Data Science.
+- Golang ha ganado mucha fuerza, empresas de renombre confían en golang, entre ellas Dropbox, Docker,Facebook, Netflix, Uber, Mercado Libre y Twitter.	 
+ 
+.image images/Gopher.png
+
+
+* Que veremos en esta introducción?
+
+
+- Caracteristicas del lenguaje	
+		 
+- Sintaxis			 		 
+- Slices	 
+- Defer		 
+- Funciones		 
+- Interfaces		 
+- Errores, Panic , Recovery		 
+- Go Routines, channels
+- Garbage Collector
+- Ventajas de uso		 
+- Benchmarks
+
+
+ 
+* Caracteristicas del lenguaje
+
+- Lenguaje no orientado a objetos.
+	  
+- Sencillez relacionado al uso.
+	 
+- Sintaxis clara y concisa, similar al lenguaje C.
+	 
+- Lenguaje concurrente que soporta canales de comunicación.
+	 
+
+.image images/goLand.png 300 300 
+
+
+* Orientado a objetos?
+	
+- En Golang no hay objetos como en Java o C++, por eso se trabaja con registros (struct).
+
+- No existe una jerarquía de objetos, por lo tanto, no existe la herencia.
+		
+- Con el concepto "Interfaz" y las "receiver functions" se habilita la posibilidad de un "estilo" orientado a objetos    
+	
+
+.image images/OOP.png 300 300 		
+
+
+* Sintaxis
+
+- Go es similar a C pero mucho mas simple.	
+
+.play codigo/code.go /^func showSintaxis/,/^}/
+.play codigo/code.go /^func showSwitch/,/^}/
+
+.image images/sintaxis.png 60 250
+
+
+* Slices
+
+- Go nos proporciona una forma alternativa para trabajar con arreglos por medio de los slice.
+- Nos brindan las mismas ventajas de los arreglos pero con algunas funciones y características únicas que los vuelven más flexibles. 
+  
+.image images/sliceFinal.png 
+
+
+* Slices - Ejemplo
+
+.play codigo/slices.go /^func main/,/^}/
+
+
+* Defer
+
+- Es utilizado comunmente para asegurar la ejecución de una función en un programa antes que este finalice.
+
+- El propósito es simplificar tareas de clean-up 
+
+
+.image images/defer2.png 450 700
+
+
+* Funciones I
+
+- En Golang no existen metodos pero sí funciones.   
+- Una función comienza con la palabra clave func y seguida a esta su nombre, puede tener parámetros, un valor o más de un retorno
+
+.play codigo/funciones1.go /^func add/,/^func main/,/^}/
+.image images/gopherF.jpg 200 200
+
+* Funciones II
+
+- Funcion Fibonacci
+
+.play codigo/funciones2.go /^func fib/,/^func main/,/^}/
+
+.image images/gopher_jumping.gif 200 200
+
+* Funciones III
+
+- Receiver functions   
+
+En Go, las funciones pueden actuar como tipo receptoras en las cuales ademas permiten definir metodos.
+
+.play codigo/receiverFunction.go 
+
+* Interfaces
+
+- Las interfaces permiten alcanzar el polimorfismo en Golang.
+
+- Una interfaz permite definir dos cosas:
+	
+	- Una colección de firmas de funciones.
+	
+	- Type
+  
+.image images/gopher.png
+
+* Ejemplillo
+.play -edit -numbers codigo/interfaces.go
+
+
+* Que hemos visto hasta ahora?
+
+- Caracteristicas del lenguaje		 
+- Sintaxis			 		 
+- Slices	 
+- Defer		 
+- Funciones		 
+- Interfaces		 
+
+.image images/goDetective.jpeg 250 250
+
+* Que nos falta?
+
+- Errores, Panic, Recovery		 
+- Go Routines			 		 
+- Channels	 
+- Garbage Collector	 
+- Ventajas de uso 
+- Metricas	 
+
+.image images/gophercises_lifting.gif 260 300
+
+
+* Errores, Panic, Recovery
+
+- Errores
+
+	- En Go no existe el concepto "try", "catch"
+	
+.play codigo/errorDemo.go 
+
+.image images/errors.jpg 120 200
+
+* Panic
+
+- Que pasa cuando ocurren errores inesperados?
+
+.play -edit codigo/errors.go 
+
+.image images/fire.jpg 170 460
+
+* Recovery
+
+- Recover función incorporada que recupera el control de una goroutine.
+
+.play -edit -numbers codigo/errors1.go
+
+
+
+* Go Routines
+
+.image images/goRutin.png 600 700
+
+
+
+* Go Routines
+
+- Una goroutine es un hilo "liviano" manejado por el runtime de GO.
+
+.image images/goRutinas.png 
+
+- Como sincronizamos goroutines?
+
+* Sincrónico
+
+.play -edit -numbers codigo/goroutineSin.go
+
+* Paralelo
+
+.play -edit -numbers codigo/goroutine.go
+
+* Channels
+
+- "No comunicar por medio de memoria compartida; en su lugar, compartir la memoria por comunicación."
+	- La sincronizacion de las goroutines se realiza mediante "canales" de comunicacion.
+	- Proveen un mecanismo el cual permite enviar valores de un hilo a otro de modo "seguro".
+	- Se caracterizan por su tipo de datos, el tamaño de su buffer y la direccion de la comunicacion.
+	- El operador de canal se identifica con el simbolo <-
+
+.image images/channel.png
+.image images/go-channel.jpg 
+
+
+* Ejemplo sencillo
+
+.play -edit codigo/channels.go
+
+* Garbage Collector
+
+- Basado en el algoritmo "Tricolor-mark sweep"
+.image images/garbage1.png 300 420
+.image images/gopherGarb.jpeg 300 350 
+
+* Ventajas de uso 
+
+.image images/whyGo.png
+ 
+
+* GO vs Python, JAVA & Node
+
+.image images/gopherStars.jpg 100 100
+.image images/nodejs-vs-golang.jpg 200 570
+.image images/golang-vs-java.jpg 200 570
+
+* Resultados - Performance ML
+
+.image images/resultML.png
+
+* Resultados - Performance ML I
+
+.image images/resML1.png
+
+* Resultados - Performance ML II
+
+.image images/resML3.png
+
+ 
+* Dudas
+.image images/gopherD.png
+ 

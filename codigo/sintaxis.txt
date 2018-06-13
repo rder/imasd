@@ -1,0 +1,28 @@
+Slide 1:
+
+Go es un lenguaje desarrollado por Google, Rob Pike es uno de sus creadores, la idea se basa en crear y 
+aprovechar de forma optima los recursos de la maquina.
+Sus mecanismos de concurrencia facilitan la escritura de programas consiguiendo lo mejor de máquinas multinúcleo y de la red, mientras 
+su nivel sistema de tipos permite la construcción de programas flexibles y modulares. 
+
+Slide 2:
+
+
+Slide 3:
+
+
+
+Concurrencia:
+
+
+No comunicar por medio de memoria compartida; en su lugar, compartir la memoria por comunicación.
+
+/*
+   
+	defer func() { r := recover(); 
+		if r != nil {
+			fmt.Printf("recover from ", r);
+			return
+		}
+	}()
+*/
